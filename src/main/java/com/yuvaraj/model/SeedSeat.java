@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class SeedSeat {
 private int id;
- private int status;
+ private String status;
 }
