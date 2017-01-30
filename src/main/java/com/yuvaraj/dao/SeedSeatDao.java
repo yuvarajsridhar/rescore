@@ -17,6 +17,10 @@ public class SeedSeatDao {
 
 
 	}
+	/**
+	 * delete seat
+	 * @param id
+	 */
 	public void delete(int id)
 	{
 		String sql = "delete from seed_seat where id=?";
