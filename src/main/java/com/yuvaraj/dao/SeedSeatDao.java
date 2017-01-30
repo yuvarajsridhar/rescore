@@ -1,8 +1,15 @@
 package com.yuvaraj.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.yuvaraj.model.FoodDetail;
+import com.yuvaraj.model.SeedFood;
 import com.yuvaraj.model.SeedSeat;
+import com.yuvaraj.model.SeedSession;
 import com.yuvaraj.util.ConnectionUtil;
 
 public class SeedSeatDao {
@@ -26,5 +33,22 @@ public class SeedSeatDao {
 		String sql = "delete from seed_seat where id=?";
 		int rows = jdbcTemplate.update(sql, id);
 		System.out.println("No of rows deleted: " + rows);
+	}
+	public List<SeedSeat>list(){
+		 String sql="select *from seed_seat";
+		  return jdbcTemplate.query(sql, (rs, rowNum) -> {
+			 final  SeedSeat seedSeat = convert(rs);
+			  return seedSeat;
+					  
+		 });
+	}
+	public SeedSeat convert(final ResultSet rs) throws SQLException {
+		SeedSeat seedSeat = new SeedSeat();
+		
+
+		seedSeat.setId(rs.getInt("id"));
+		seedSeat.setStatus(rs.getInt("status"));
+		
+		return seedSeat;
 	}
 }
