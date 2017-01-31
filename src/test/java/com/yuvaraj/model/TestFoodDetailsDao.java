@@ -5,28 +5,32 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.yuvaraj.dao.FoodDeatailDao;
+import com.yuvaraj.service.FoodDetailService;
 
 public class TestFoodDetailsDao {
 
 	public static void main(String[] args) {
 		
-		/*FoodDetail foodDetail=new FoodDetail();
+		FoodDetail foodDetail=new FoodDetail();
 		SeedSession seedSession = new SeedSession();
 		seedSession.setId(1);
 		foodDetail.setId(17);
 		SeedFood seedFood = new SeedFood();
-		seedFood.setId(14);
+		seedFood.setId(9);
 		foodDetail.setFoodId(seedFood);
 		foodDetail.setSessionId(seedSession);
 		foodDetail.setQuantity(15);
+	
+		FoodDetailService  foodDetailService=new FoodDetailService();
+		foodDetailService.fooddetailservicedelete(17);
 	    
-		FoodDeatailDao foodDetailDao = new FoodDeatailDao();
+	/*	FoodDeatailDao foodDetailDao = new FoodDeatailDao();
 		foodDeatailDao.save(foodDetail);*/
 		
-		FoodDeatailDao foodDetailDao = new FoodDeatailDao();
-		final  List<FoodDetail> list = foodDetailDao.list();
+		
+		//final  List<FoodDetail> list = foodDetailDao.list();
 
-		final Iterator ii = list.iterator();
+	/*	final Iterator ii = list.iterator();
 		
 
 		while (ii.hasNext()) {
@@ -36,7 +40,7 @@ public class TestFoodDetailsDao {
 			System.out.println(foodDetail.getFoodId().getId());
 			System.out.println(foodDetail.getSessionId().getId());
 			System.out.println(foodDetail.getQuantity());
-		}
+		}*/
 				
 
 			}

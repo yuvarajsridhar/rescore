@@ -1,39 +1,32 @@
 package com.yuvaraj.validator;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.yuvaraj.exception.SeedFoodException;
+import com.yuvaraj.exception.SeedSeatException;
 import com.yuvaraj.model.SeedSeat;
+import com.yuvaraj.util.IsValidInteger;
+import com.yuvaraj.util.IsValidString;
 
 public class SeedSeatValidator {
-	private final Logger logger = Logger.getLogger(SeedFoodValidator.class.getName());
-  public void validatesave(SeedSeat seedSeat)
+	IsValidInteger isValidInteger=new IsValidInteger();
+	
+  public void validid(int id)throws SeedSeatException
   {
-	  if((seedSeat.getId())==0 || "".equals(seedSeat.getStatus()))
+	  if(isValidInteger.isnotvalid(id))
 	  {
-		  try{
-			  throw new SeedFoodException("this field cannot be null");
-		  }
-		  catch (SeedFoodException e)
-		  {
-			  logger.log(Level.INFO ,"Exception occur",e);
-		  }
-	  }else if ((seedSeat.getStatus()!="0") && (seedSeat.getStatus()!="1"))
-	  {
-		 try{
-			 throw new SeedFoodException("shoud be 0 or 1");
-		 }catch(SeedFoodException e){
-			 logger.log(Level.INFO,"Exception occur",e);
-		 }
+		  throw new SeedSeatException("should not be null or should not be negative");
 	  }
-  else if (seedSeat.getId()<0)
-  {
-	 try{
-		 throw new SeedFoodException("shoud not be negative");
-	 }catch(SeedFoodException e){
-		 logger.log(Level.INFO,"Exception occur",e);
-	 }
   }
-}
+ public void validstatus(int num) throws SeedSeatException
+ {
+	 if(num!=0 && num !=1)
+	 {
+		 throw new SeedSeatException("should be 1 or 0");
+	 }
+ }
+ public void validatesave(SeedSeat seedSeat) throws SeedSeatException{
+	 validid(seedSeat.getId());
+	 validstatus(seedSeat.getStatus());
+ }
+ public void validatedelete(int id)throws SeedSeatException{
+	 validid(id);
+ }
 }

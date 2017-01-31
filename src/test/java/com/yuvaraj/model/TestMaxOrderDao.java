@@ -4,21 +4,23 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.yuvaraj.dao.MaxOrderDao;
+import com.yuvaraj.service.MaxOrderService;
 
 public class TestMaxOrderDao {
 
 	public static void main(String[] args) {
 		
-	/*	MaxOrder maxOrder = new MaxOrder();
+		MaxOrder maxOrder = new MaxOrder();
 		maxOrder.setId(2);
 		
 		maxOrder.setMaxOrder(6);
-		maxOrder.setKey("week day");
+		maxOrder.setKey("");
 		
-		MaxOrderDao maxOrderDao=new MaxOrderDao();
-		maxOrderDao.save(maxOrder);*/
+		MaxOrderService maxOrderService=new MaxOrderService();
+		//maxOrderService.maxorderservicesave(maxOrder);
+		maxOrderService.maxorderservicedelete(0);
 		
-		MaxOrderDao maxOrderDao=new MaxOrderDao();
+	/*	MaxOrderDao maxOrderDao=new MaxOrderDao();
 		 final  List<MaxOrder> list = maxOrderDao.list();
 
 			final Iterator ii = list.iterator();
@@ -30,7 +32,7 @@ public class TestMaxOrderDao {
 				System.out.println(maxOrder.getMaxOrder());
 				
 				System.out.println(maxOrder.getKey());
-			}
+			}*/
 
 	}
 
